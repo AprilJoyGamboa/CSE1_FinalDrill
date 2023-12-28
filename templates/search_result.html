@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+     <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+
+    {% if search_results %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Day Date</th>
+                    <th>Payment Method Code</th>
+                    <!-- Add more columns as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for payment in search_results %}
+                    <tr>
+                        <td>{{ payment[0] }}</td>
+                        <td>{{ payment[1] }}</td>
+                        <td>{{ payment[2] }}</td>
+                        <!-- Add more columns as needed -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>

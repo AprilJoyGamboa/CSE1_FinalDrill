@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Payment</title>
+</head>
+<body>
+    <h2>Delete Payment</h2>
+    <p>Are you sure you want to delete the payment with ID "{{ payment[0] }}"?</p>
+    
+    <form method="POST" action="/payments/{{ payment_id }}/delete">
+        <input type="submit" value="Delete">
+    </form>
+
+    <a href="/payments">Cancel</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Payment</title>
+</head>
+<body>
+    <h1>Edit Payment</h1>
+    <form action="/payments/{{ payment_id }}/edit" method="POST">
+        <label for="day_date">Day Date:</label>
+        <input type="date" name="day_date" value="{{ payment.day_date }}" required>
+        <br>
+
+        <label for="payment_method_code">Payment Method Code:</label>
+        <input type="text" name="payment_method_code" value="{{ payment.payment_method_code }}" required>
+        <br>
+
+        <!-- Add more fields as needed -->
+
+        <button type="submit">Update Payment</button>
+    </form>
+</body>
+</html>

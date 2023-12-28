@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Payment</title>
+</head>
+<body>
+
+<h1>Create Payment</h1>
+<form id="paymentForm" method="post" action="/payments" enctype="application/json">
+    <label for="Day_date">Day Date:</label>
+    <input type="date" name="Day_date" required>
+    <br>
+    <label for="Payment_method_code">Payment Method Code:</label>
+    <input type="text" name="Payment_method_code" required>
+    <br>
+    <input type="submit" value="Submit" onclick="submitForm(event)">
+</form>
+
+<script>
+function submitForm(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Get form data and convert to JSON
+    const formData = {
+        Day_date: document.getElementsByName("Day_date")[0].value,
+        Payment_method_code: document.getElementsByName("Payment_method_code")[0].value,
+    };
+
+    // Make a POST request using fetch API
+    fetch('/payments', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        alert('Payment created successfully');
+        // Optionally, you can redirect or perform other actions on success
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Error creating payment');
+    });
+}
+</script>
+
+</body>
+</html>
