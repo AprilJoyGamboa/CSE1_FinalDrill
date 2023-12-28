@@ -63,14 +63,14 @@ SUBMISSION REQUIREMENTS:
 prohibited).
 
 ## Usage
-This is just a simple CRUD of customers table in payments and its method data model - or database
+This is just a simple CRUD of payments table and its method, data model - or database
 
 ### POST /users
 
    ```http
    #http://127.0.0.1:5000/login
    users:{
-     "admin": "password",
+     "admin": "root",
      "username": "password"
    }
   ```
